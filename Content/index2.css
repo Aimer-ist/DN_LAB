@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+
+body{
+    font-family: "Microsoft JhengHei","cwTeXYen","Raleway", sans-serif, ;
+}
+header{
+    height: 150px;
+    background-color:  #fcfefe;
+    display: inline-block;
+    padding: 40px;
+    
+}
+div.h1{
+    font-size: 55px;
+    color:  #4d638c;
+}
+/*導覽列預設字體*/
+nav > ul > li > a.navcss{
+    color: #949595;
+    font-size: 18px;
+    border-bottom: 4px solid #fcfefe;
+    border-top:4px solid #fcfefe;
+    
+}
+
+/*header 導覽列 active*/
+div > nav > ul > li > a.headnav:hover{
+    color:   #CC9428; 
+    text-shadow: 1px 3px 3px #FCF4D9;
+    border-top: 4px solid #FEDA6A;
+}
+
+div > nav > ul > li > a.navmain{
+    border-left: 4px solid #fcfefe;
+}
+/*main 導覽列 active*/
+div > nav > ul > li > a.navmain:hover{
+    border-right: 4px solid #FEDA6A;
+    color:   #CC9428; 
+}
+/*script御用class*/
+div > nav > ul > li > a.hhtmlstyle_nav{
+    border-left: 4px solid #CFE0F9;
+    color: #4D638C;
+}
+
+/*中間橫槓*/
+#title{
+    height: 90px;
+    padding: 20px ;
+    background-color: #283654;
+}
+#title > div div.h2{
+    color: #fcfefe;
+}
+
+/*主要內容*/
+#main{
+    min-height: 700px;
+    background-color: #fcfefe;
+    padding: 15px;
+    
+}
+
+#main > div div.bosscard{
+    height: auto;
+    display: inline-block;
+    padding: 14px 34px;
+    color: #1C1E24;
+    font-size: 14px;
+}
+#main > div div.tablecontent{
+    display: inline-block;
+    padding: 20px 20px 0px 20px;
+}
+#main > div div.tablecontent > table.table > tr{
+    border-color: none;
+}
+#main > div legend.subtitle{
+    padding-bottom:15px;
+    text-shadow: 1px 3px 3px rgba(135, 206, 235, 1); 
+}
+legend.bottom_line{
+    width: 350px;
+    border-bottom: 1px solid #E1E2E2;
+}
+table.stlist{
+    margin: 15px 0px 15px 10px;
+}
+table.stlist tr th {
+    color:  #4d638c;
+    font-size: 16px;
+    width:auto;
+    padding: 0px 10px 0px 10px;
+}
+
+

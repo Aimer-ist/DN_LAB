@@ -1,0 +1,44 @@
+﻿@using DN_lab.Models;
+
+@{
+    List<Project> projects = ViewBag.projects;
+}
+<style>
+    body {
+        font-family: "Microsoft JhengHei";
+    }
+</style>
+@{
+    var lok = projects.ToLookup(c => c.Pro_Status);
+    foreach (var g in lok) {
+        <legend class="subtitle">@g.Key</legend>
+        <table class="table table-hover table-responsive ">
+            <thead >
+                <tr style="color:#4d638c;font-weight:200;font-size:large;">
+                    <th width=55% scope="col">計畫名稱</th>
+                    <th width=10% scope="col">來源</th>
+                    <th width=25% scope="col">編號</th>
+                    <th width=10% scope="col">起迄日期</th>
+
+                </tr>
+            </thead>
+            @{
+                foreach (var pro in g) {
+                    <tbody >
+                        <tr >
+                            <td style="vertical-align:inherit;">@pro.Pro_Name</td>
+                            <td style="vertical-align:inherit;">@pro.Pro_Source</td>
+                            <td style="vertical-align:inherit;">@pro.Pro_Number</td>
+                            <td style="vertical-align:inherit;">
+                                @pro.Pro_Start.GetDateTimeFormats('d')[0].ToString()~<br>
+                                @pro.Pro_Finish.GetDateTimeFormats('d')[0].ToString()
+                            </td>
+                            <td><a href="@Url.Action("EditProject", new { id = pro.Project_Id })" class="btn btn-outline-info" role="button" aria-pressed="true">編輯</a></td>
+                            <td><a href="@Url.Action("DeleteProject", new { id = pro.Project_Id })" class="btn btn-outline-danger" role="button" aria-pressed="true">刪除</a></td>
+                        </tr>
+                    </tbody>
+                }
+            }
+        </table>
+    }
+}

@@ -1,0 +1,133 @@
+﻿<style>
+    body {
+        font-family: "Microsoft JhengHei";
+    }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知識實驗室</title>
+    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    @Styles.Render("~/Content/index2")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @using DN_lab.Models;
+
+    @{ 
+        List<Navdata> navData_st = new List<Navdata>();
+        navData_st.Add(new Navdata("一般生", "Index", "M"));
+        navData_st.Add(new Navdata("在職專班", "Index", "N"));
+        navData_st.Add(new Navdata("EMBA", "Index", "E"));
+
+        List<Navdata> navData_lab = new List<Navdata>();
+        navData_lab.Add(new Navdata("主持人", "ResearchField"));
+        navData_lab.Add(new Navdata("個人簡歷", "Index"));
+        navData_lab.Add(new Navdata("研究項目", "ResearchField"));
+
+        List<Navdata> navData_academic = new List<Navdata>();
+        navData_academic.Add(new Navdata("研究計畫", "Project"));
+        navData_academic.Add(new Navdata("期刊論文", "Index"));
+        navData_academic.Add(new Navdata("研討會論文", "Index"));
+        navData_academic.Add(new Navdata("專書論文", "Index"));
+        navData_academic.Add(new Navdata("其他", "Index"));
+    }
+
+
+    <header id="header">
+        <div class="container">
+            <div class="row ">
+                <div class="col-6 h1">知識實驗室</div>
+                <div class="col-6">
+                    <nav class="nav">
+                        <ul class="nav">
+                            <li class="nav-itme">
+                                <a class="nav-link navcss headnav" href="@Url.Action("Index","Home")" style="color: #4D638C; text-shadow: 1px 3px 3px #CFE0F9;border-bottom: 4px solid #CFE0F9;">實驗室簡介</a>
+                            </li>
+                            <li class="nav-itme">
+                                <a class="nav-link navcss headnav" href="teacheer2.html">學術著作</a>
+                            </li>
+                            <li class="nav-itme">
+                                <a class="nav-link navcss headnav" href="@Url.Action("Index","Student")">歷屆學生</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="title">
+        <div class="container-fluid">
+            <div class="row title">
+                <div class="col-2"></div>
+                <div class="col-10 h2">實驗室介紹</div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <nav class="nav">
+                        <ul class="nav flex-column navcss navmain">
+
+                            @{
+
+                                String thisCotroller = ViewContext.RouteData.Values["controller"].ToString();
+                                
+
+                                List<Navdata> navData_now = new List<Navdata>();
+                                if (thisCotroller == "Student") {
+                                    navData_now = navData_st;
+                                }
+                                else if (thisCotroller == "Home") {
+                                    navData_now = navData_lab;
+                                }
+                                else if (thisCotroller == "Academic") {
+                                    navData_now = navData_academic;
+                                }
+
+                                foreach (Navdata data in navData_now) {
+                                    if (String.Empty.Equals(data.Vari)) {
+                                        <li class="nav-item">
+                                            <a class="nav-link navcss navmain" href="@Url.Action(data.Link, thisCotroller)">@data.Name</a>
+                                        </li>
+                                    }
+                                    else {
+                                        <li class="nav-item">
+                                            <a class="nav-link navcss navmain" href="@Url.Action(data.Link, thisCotroller, new { type = data.Vari })">@data.Name</a>
+                                        </li>
+                                    }
+                                }
+                            }
+                           
+
+                        </ul>
+                    </nav>
+                </div>
+                <div id="inder_AA" class="col-10 main">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

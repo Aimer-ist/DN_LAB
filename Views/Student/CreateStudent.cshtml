@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "CreateStudent";
+}
+<style>
+    body {
+        font-family: "Microsoft JhengHei";
+    }
+</style>
+<h2>新增 畢業Student</h2>
+<br />
+<!--id、name、value、欄位還要再修改-->
+<form method="post" action="/Student/CreateStudent">
+    <div class="form-group row">
+        <lable for="inputCharName" class="col-sm-2">姓名</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputStName" name="St_Name" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardName" class="col-sm-2">畢業學年</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputStYear" name="St_Year" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardLevel" class="col-sm-2">論文名稱</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputStPaper" name="St_Paper" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCharName" class="col-sm-2">學校系所</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputStName" name="St_School" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardName" class="col-sm-2">學級</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputStYear" name="St_Type" class="form-control" />
+        </div>
+    </div>
+    <input class="btn btn-default" type="submit" value="新增" />
+</form>

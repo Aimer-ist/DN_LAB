@@ -1,0 +1,56 @@
+﻿
+
+@model DN_lab.Models.Project
+
+<style>
+    body {
+        font-family: "Microsoft JhengHei";
+    }
+</style>
+<h2>編輯 研究計畫 資料</h2>
+<br />
+<form method="post" action="/Academic/EditProject">
+    <div class="form-group row" hidden>
+        <lable for="inputCharName" class="col-sm-2">計畫id</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProjectId" name="Project_id" class="form-control" value="@Model.Project_Id" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCharName" class="col-sm-2">計畫名稱</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProName" name="Pro_Name" value="@Model.Pro_Name" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCharName" class="col-sm-2">身分</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProStatus" name="Pro_Status" value="@Model.Pro_Status" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardName" class="col-sm-2">計畫來源</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProSource" name="Pro_Source" value="@Model.Pro_Source" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardLevel" class="col-sm-2">計畫編號</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProNumber" name="Pro_Number" value="@Model.Pro_Number" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardName" class="col-sm-2">計畫的開始時間</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProStart" name="Pro_Start" value="@Model.Pro_Start" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lable for="inputCardLevel" class="col-sm-2">計畫的結束時間</lable>
+        <div class="col-sm-10">
+            <input type="text" id="inputProFinish" name="Pro_Finish" value="@Model.Pro_Finish" class="form-control" />
+        </div>
+    </div>
+    <input class="btn btn-default" type="submit" value="儲存" />
+</form>

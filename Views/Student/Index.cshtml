@@ -1,0 +1,50 @@
+﻿@using DN_lab.Models;
+@{
+    List<Student> students = ViewBag.students;
+}
+<style>
+    body {
+        font-family: "Microsoft JhengHei";
+    }
+</style>
+<h3>
+    @Html.ActionLink("新增", "CreateStudent")
+</h3>
+
+@{
+    var lok = students.ToLookup(c => c.St_Year);
+    foreach (var g in lok) {
+        <legend class="subtitle bottom_line">@g.Key 學年度</legend>
+        foreach (var st in g) {
+                <div class="row container ">
+                    <div class="col-9 ">
+                        <table class=" stlist">
+                            <tr>
+                                <th>姓名</th>
+                                <th>@st.St_Name</th>
+                            </tr>
+                            <tr>
+                                <th>論文</th>
+                                <th>@st.St_Paper</th>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="col-3 row mt-4">
+                        <div class="col-6">
+                            <a href="@Url.Action("EditStudent", new { id = st.Student_Id })" class="btn btn-outline-info" role="button" aria-pressed="true">編輯</a>
+                        </div>
+                        <div class="col-6">
+                            <a href="@Url.Action("DeleteStudent", new { id = st.Student_Id })" class="btn btn-outline-danger" role="button" aria-pressed="true">刪除</a>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        }
+    }
+
+
+
+
+
